@@ -9,7 +9,8 @@ namespace dmyWebApp.Controllers
         public ActionResult Random()
         {
             var movie = new Movie {Name = "Shrack!"};
-            return View(movie);
+//            return View(movie);
+            return Content(content: "Hello World!");
         }
     }
 }
