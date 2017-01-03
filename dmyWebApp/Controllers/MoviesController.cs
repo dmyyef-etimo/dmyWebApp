@@ -13,7 +13,8 @@ namespace dmyWebApp.Controllers
             //  return Content(content: "Hello World!");
             // return HttpNotFound(statusDescription: "not found!");
             // return new EmptyResult();
-            return RedirectToAction(actionName: "Index", controllerName: "Home");
+            return RedirectToAction(actionName: "Index", controllerName: "Home",
+                routeValues: new {page = 1, sortBy = "page"});
         }
     }
 }
