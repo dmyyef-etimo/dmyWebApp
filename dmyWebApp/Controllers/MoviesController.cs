@@ -1,5 +1,7 @@
-﻿using System.Web.Mvc;
+﻿using System.Collections.Generic;
+using System.Web.Mvc;
 using dmyWebApp.Models;
+using dmyWebApp.ViewModels;
 
 namespace dmyWebApp.Controllers
 {
@@ -9,7 +11,21 @@ namespace dmyWebApp.Controllers
         public ActionResult Random()
         {
             var movie = new Movie {Name = "Shrack!"};
-            return View(movie);
+            var customers = new List<Customer>
+            {
+                new Customer {Name = "Customer One"},
+                new Customer {Name = "Customer One"},
+                new Customer {Name = "Customer One"},
+                new Customer {Name = "Customer One"},
+                new Customer {Name = "Customer One"},
+                new Customer {Name = "Customer Two"}
+            };
+            var randomMovieViewModel = new RandomMovieViewModel
+            {
+                Movie = movie,
+                Customers = customers
+            };
+            return View(randomMovieViewModel);
         }
 
         public ActionResult Edit(int id)
