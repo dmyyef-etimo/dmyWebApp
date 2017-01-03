@@ -11,7 +11,8 @@ namespace dmyWebApp.Controllers
             var movie = new Movie {Name = "Shrack!"};
 //            return View(movie);
             //  return Content(content: "Hello World!");
-            return HttpNotFound(statusDescription: "not found!");
+            // return HttpNotFound(statusDescription: "not found!");
+            return new EmptyResult();
         }
     }
 }
