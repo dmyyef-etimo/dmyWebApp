@@ -12,7 +12,8 @@ namespace dmyWebApp.Controllers
 //            return View(movie);
             //  return Content(content: "Hello World!");
             // return HttpNotFound(statusDescription: "not found!");
-            return new EmptyResult();
+            // return new EmptyResult();
+            return RedirectToAction(actionName: "Index", controllerName: "Home");
         }
     }
 }
