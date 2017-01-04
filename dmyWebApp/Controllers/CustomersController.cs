@@ -7,24 +7,24 @@ namespace dmyWebApp.Controllers
 {
     public class CustomersController : Controller
     {
-        private readonly List<Customer> customers;
-
-        public CustomersController()
-        {
-            customers = //new List<Customer>();
-                Enumerable.Range(start: 1, count: 8)
-                    .Select(id => new Customer {Id = id, Name = $"Customer-{id}"})
-                    .ToList();
-        }
-
         public ActionResult Index()
         {
-            return View(customers);
+            return View(GetCustomers());
         }
 
-        public ActionResult Customer(int id)
+        private IEnumerable<Customer> GetCustomers()
         {
-            var customer = customers.FirstOrDefault(c => c.Id == id) ?? new Customer {Name = "Unknown", Id = 0};
+            var customers = new List<Customer>
+            {
+                new Customer {Id = 1, Name = "John Smith"},
+                new Customer {Id = 2, Name = "Mary Williams"}
+            };
+            return customers;
+        }
+
+        public ActionResult Details(int id)
+        {
+            var customer = GetCustomers().SingleOrDefault(c => c.Id == id) ?? new Customer {Name = "Unknown", Id = 0};
             return View(customer);
         }
     }

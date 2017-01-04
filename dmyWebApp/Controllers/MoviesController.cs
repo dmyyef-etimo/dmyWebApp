@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Web.Mvc;
 using dmyWebApp.Models;
 using dmyWebApp.ViewModels;
@@ -7,6 +8,16 @@ namespace dmyWebApp.Controllers
 {
     public class MoviesController : Controller
     {
+        private IEnumerable<Movie> GetMovies()
+        {
+            var movies = new List<Movie>
+            {
+                new Movie {Id = 1, Name = "Shrek"},
+                new Movie {Id = 2, Name = "Wall-e"}
+            };
+            return movies;
+        }
+
         // GET: /movies/random
         public ActionResult Random()
         {
@@ -42,13 +53,18 @@ namespace dmyWebApp.Controllers
             if (string.IsNullOrWhiteSpace(sortBy))
                 sortBy = "Name";
 
-            return Content($"page index = {pageIndex}, sort by = {sortBy}");
+            return View(GetMovies());
         }
 
         [Route(template: "movies/released/{year:regex(\\d{4}):range(1900,2050)}/{month:regex(\\d{1,2}):range(1,12)}")]
         public ActionResult ByReleaseDate(int year, int month)
         {
             return Content($"{year}/{month:00}");
+        }
+
+        public ActionResult Details(int id)
+        {
+            return Content(GetMovies().FirstOrDefault(m => m.Id == id).Name ?? "No movies yet");
         }
     }
 }

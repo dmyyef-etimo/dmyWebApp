@@ -9,15 +9,25 @@
 
 @if (Model.Any())
 {
-    <h4>Customer</h4>
-    <ul>
+    <table class="table table-bordered table-hover">
+        <thead>
+        <tr>
+            <td>Customer</td>
+        </tr>
+        </thead>
+        <tbody>
         @foreach (var customer in Model)
         {
-            <li>@Html.ActionLink(customer.Name, actionName: "Customer", controllerName: "Customers", routeValues: new {id = customer.Id}, htmlAttributes: new {})</li>
+            <tr>
+                <td>
+                    @Html.ActionLink(customer.Name, actionName: "Details", controllerName: "Customers", routeValues: new {id = customer.Id}, htmlAttributes: new {})
+                </td>
+            </tr>
         }
-    </ul>
+        </tbody>
+    </table>
 }
 else
 {
-    <p>No customers yet</p>
+    <p>We don't have any customers yet!</p>
 }
