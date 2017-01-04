@@ -21,9 +21,12 @@ namespace dmyWebApp.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
-            : base("DefaultConnection", throwIfV1Schema: false)
+            : base(nameOrConnectionString: "DefaultConnection", throwIfV1Schema: false)
         {
         }
+
+        public DbSet<Customer> Customers { get; set; }
+        public DbSet<Movie> Movies { get; set; }
 
         public static ApplicationDbContext Create()
         {
