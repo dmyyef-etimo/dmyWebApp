@@ -24,7 +24,7 @@
                     @Html.ActionLink(customer.Name, actionName: "Details", controllerName: "Customers", routeValues: new {id = customer.Id}, htmlAttributes: new {})
                 </td>
                 <td>
-                    @customer.MembershipType.DiscountRate.ToString(format: "P")
+                    @((customer.MembershipType.DiscountRate/100.0).ToString(format: "P"))
                 </td>
             </tr>
         }
