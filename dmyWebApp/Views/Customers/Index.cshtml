@@ -13,6 +13,7 @@
         <thead>
         <tr>
             <th>Customer</th>
+            <th>Membership Type</th>
             <th>DiscountRate</th>
         </tr>
         </thead>
@@ -22,6 +23,9 @@
             <tr>
                 <td>
                     @Html.ActionLink(customer.Name, actionName: "Details", controllerName: "Customers", routeValues: new {id = customer.Id}, htmlAttributes: new {})
+                </td>
+                <td>
+                    @customer.MembershipType.Id
                 </td>
                 <td>
                     @((customer.MembershipType.DiscountRate/100.0).ToString(format: "P"))
