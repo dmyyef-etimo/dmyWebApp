@@ -208,6 +208,10 @@
     <Compile Include="Migrations\201701042231225_AddCustomerBirthday.Designer.cs">
       <DependentUpon>201701042231225_AddCustomerBirthday.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201701042300410_MadeNullableBirthday.cs" />
+    <Compile Include="Migrations\201701042300410_MadeNullableBirthday.Designer.cs">
+      <DependentUpon>201701042300410_MadeNullableBirthday.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -328,6 +332,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201701042231225_AddCustomerBirthday.resx">
       <DependentUpon>201701042231225_AddCustomerBirthday.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201701042300410_MadeNullableBirthday.resx">
+      <DependentUpon>201701042300410_MadeNullableBirthday.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

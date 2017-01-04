@@ -23,7 +23,8 @@ namespace dmyWebApp.Controllers
 
         public ActionResult Details(int id)
         {
-            var customer = context.Customers.SingleOrDefault(c => c.Id == id) ?? new Customer {Name = "Unknown", Id = 0};
+            var customer = context.Customers.Include(c => c.MembershipType).SingleOrDefault(c => c.Id == id) ??
+                           new Customer {Name = "Unknown", Id = 0};
             return View(customer);
         }
     }
