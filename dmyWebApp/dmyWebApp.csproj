@@ -184,11 +184,16 @@
     <Compile Include="Migrations\201701041639241_IsSubscribedToNewsLetter.Designer.cs">
       <DependentUpon>201701041639241_IsSubscribedToNewsLetter.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201701041740117_MembershipType.cs" />
+    <Compile Include="Migrations\201701041740117_MembershipType.Designer.cs">
+      <DependentUpon>201701041740117_MembershipType.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\MembershipType.cs" />
     <Compile Include="Models\Movie.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -285,6 +290,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201701041639241_IsSubscribedToNewsLetter.resx">
       <DependentUpon>201701041639241_IsSubscribedToNewsLetter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201701041740117_MembershipType.resx">
+      <DependentUpon>201701041740117_MembershipType.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
