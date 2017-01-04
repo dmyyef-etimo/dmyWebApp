@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Data.Entity;
+using System.Linq;
 using System.Web.Mvc;
 using dmyWebApp.Models;
 
@@ -16,7 +17,7 @@ namespace dmyWebApp.Controllers
 
         public ActionResult Index()
         {
-            var customers = context.Customers.ToList();
+            var customers = context.Customers.Include(c => c.MembershipType).ToList();
             return View(customers);
         }
 

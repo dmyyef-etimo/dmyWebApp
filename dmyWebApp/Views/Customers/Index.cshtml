@@ -12,7 +12,8 @@
     <table class="table table-bordered table-hover">
         <thead>
         <tr>
-            <td>Customer</td>
+            <th>Customer</th>
+            <th>DiscountRate</th>
         </tr>
         </thead>
         <tbody>
@@ -21,6 +22,9 @@
             <tr>
                 <td>
                     @Html.ActionLink(customer.Name, actionName: "Details", controllerName: "Customers", routeValues: new {id = customer.Id}, htmlAttributes: new {})
+                </td>
+                <td>
+                    @customer.MembershipType.DiscountRate.ToString(format: "P")
                 </td>
             </tr>
         }
