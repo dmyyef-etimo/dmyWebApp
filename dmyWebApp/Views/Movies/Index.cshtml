@@ -13,6 +13,7 @@
         <thead>
         <tr>
             <th>Movie</th>
+            <th>Genre</th>
         </tr>
         </thead>
         <tbody>
@@ -21,6 +22,9 @@
             <tr>
                 <td>
                     @Html.ActionLink(movie.Name, actionName: "Details", controllerName: "Movies", routeValues: new {id = movie.Id}, htmlAttributes: new {})
+                </td>
+                <td>
+                    @movie.Genre.Name
                 </td>
             </tr>
         }
