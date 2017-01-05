@@ -224,6 +224,18 @@
     <Compile Include="Migrations\201701050923312_MovieInfo.Designer.cs">
       <DependentUpon>201701050923312_MovieInfo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201701050932243_MovieInfoRequired.cs" />
+    <Compile Include="Migrations\201701050932243_MovieInfoRequired.Designer.cs">
+      <DependentUpon>201701050932243_MovieInfoRequired.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201701050933426_GenreId.cs" />
+    <Compile Include="Migrations\201701050933426_GenreId.Designer.cs">
+      <DependentUpon>201701050933426_GenreId.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201701050941167_MovieInfoNullable.cs" />
+    <Compile Include="Migrations\201701050941167_MovieInfoNullable.Designer.cs">
+      <DependentUpon>201701050941167_MovieInfoNullable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -357,6 +369,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201701050923312_MovieInfo.resx">
       <DependentUpon>201701050923312_MovieInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201701050932243_MovieInfoRequired.resx">
+      <DependentUpon>201701050932243_MovieInfoRequired.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201701050933426_GenreId.resx">
+      <DependentUpon>201701050933426_GenreId.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201701050941167_MovieInfoNullable.resx">
+      <DependentUpon>201701050941167_MovieInfoNullable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
