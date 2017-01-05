@@ -58,7 +58,7 @@ namespace dmyWebApp.Controllers
         public ActionResult Details(int id)
         {
             var movie = context.Movies.Include(m => m.Genre).FirstOrDefault(m => m.Id == id);
-            return Content(movie.Name ?? "No movies yet");
+            return View(movie);
         }
     }
 }
