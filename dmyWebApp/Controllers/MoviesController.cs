@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web.Mvc;
 using dmyWebApp.Models;
@@ -45,7 +46,7 @@ namespace dmyWebApp.Controllers
             if (string.IsNullOrWhiteSpace(sortBy))
                 sortBy = "Name";
 
-            return View(context.Movies);
+            return View(context.Movies.Include(m => m.Genre));
         }
 
         [Route(template: "movies/released/{year:regex(\\d{4}):range(1900,2050)}/{month:regex(\\d{1,2}):range(1,12)}")]

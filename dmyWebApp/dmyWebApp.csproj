@@ -212,9 +212,14 @@
     <Compile Include="Migrations\201701042300410_MadeNullableBirthday.Designer.cs">
       <DependentUpon>201701042300410_MadeNullableBirthday.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201701050823465_AddedGenres.cs" />
+    <Compile Include="Migrations\201701050823465_AddedGenres.Designer.cs">
+      <DependentUpon>201701050823465_AddedGenres.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
+    <Compile Include="Models\Genre.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\MembershipType.cs" />
@@ -335,6 +340,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201701042300410_MadeNullableBirthday.resx">
       <DependentUpon>201701042300410_MadeNullableBirthday.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201701050823465_AddedGenres.resx">
+      <DependentUpon>201701050823465_AddedGenres.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
