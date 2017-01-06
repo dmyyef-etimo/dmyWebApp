@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+﻿using System;
 using System.Data.Entity;
 using System.Linq;
 using System.Web.Mvc;
@@ -11,33 +11,14 @@ namespace dmyWebApp.Controllers
     {
         private readonly ApplicationDbContext context = new ApplicationDbContext();
 
-        // GET: /movies/random
-        public ActionResult Random()
-        {
-            var movie = new Movie {Name = "Shrack!"};
-            var customers = new List<Customer>
-            {
-                new Customer {Name = "Customer One"},
-                new Customer {Name = "Customer One"},
-                new Customer {Name = "Customer One"},
-                new Customer {Name = "Customer One"},
-                new Customer {Name = "Customer One"},
-                new Customer {Name = "Customer Two"}
-            };
-            var randomMovieViewModel = new RandomMovieViewModel
-            {
-                Movie = movie,
-                Customers = customers
-            };
-            return View(randomMovieViewModel);
-        }
-
         public ActionResult Edit(int id)
         {
-            return Content($"id = {id}");
+            var movie = context.Movies.Single(m => m.Id.Equals(id));
+            var genres = context.Genres.ToList();
+            var viewModel = new MovieFormViewModel {Movie = movie, Genres = genres, ActionName = "Edit Movie"};
+            return View(viewName: "MovieForm", model: viewModel);
         }
 
-        // movies
         public ActionResult Index(int? pageIndex, string sortBy)
         {
             if (pageIndex.HasValue == false)
@@ -46,19 +27,40 @@ namespace dmyWebApp.Controllers
             if (string.IsNullOrWhiteSpace(sortBy))
                 sortBy = "Name";
 
-            return View(context.Movies.Include(m => m.Genre));
+            var movies = context.Movies.Include(m => m.Genre);
+            return View(movies);
         }
 
         [Route(template: "movies/released/{year:regex(\\d{4}):range(1900,2050)}/{month:regex(\\d{1,2}):range(1,12)}")]
         public ActionResult ByReleaseDate(int year, int month)
         {
-            return Content($"{year}/{month:00}");
+            return Content(content: $"{year}/{month:00}");
         }
 
-        public ActionResult Details(int id)
+        public ActionResult Create()
         {
-            var movie = context.Movies.Include(m => m.Genre).FirstOrDefault(m => m.Id == id);
-            return View(movie);
+            var genres = context.Genres.ToList();
+            var viewModel = new MovieFormViewModel {Genres = genres, Movie = new Movie(), ActionName = "New Movie"};
+            return View(viewName: "MovieForm", model: viewModel);
+        }
+
+        [HttpPost]
+        public ActionResult Update(Movie movie)
+        {
+            movie.AddedDate = DateTime.Now;
+            movie.Genre = context.Genres.Single(g => g.Id == movie.GenreId);
+            if (movie.Id == 0)
+            {
+                context.Movies.Add(movie);
+            }
+            else
+            {
+                var movieDb = context.Movies.Single(m => m.Id == movie.Id);
+                TryUpdateModel(movieDb);
+            }
+
+            context.SaveChanges();
+            return RedirectToAction(actionName: "Index", controllerName: "Movies");
         }
     }
 }

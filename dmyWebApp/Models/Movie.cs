@@ -14,9 +14,16 @@ namespace dmyWebApp.Models
         [Required]
         public Genre Genre { get; set; }
 
+        [Display(Name = "Genre")]
         public byte GenreId { get; set; }
+
+        [Display(Name = "Release Date")]
         public DateTime? ReleaseDate { get; set; }
+
+        [Display(Name = "Added Date")]
         public DateTime? AddedDate { get; set; }
+
+        [Display(Name = "In Stock")]
         public int? InStock { get; set; }
     }
 }
