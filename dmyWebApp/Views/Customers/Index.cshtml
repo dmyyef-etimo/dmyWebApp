@@ -22,8 +22,13 @@
         {
             <tr>
                 <td>
-                    @Html.ActionLink(customer.Name, actionName: "Details", controllerName: "Customers", routeValues: new {id = customer.Id}, htmlAttributes: new {})
+                    @Html.ActionLink(customer.Name,
+                        actionName: "Edit",
+                        controllerName: "Customers",
+                        routeValues: new {id = customer.Id},
+                        htmlAttributes: new {})
                 </td>
+
                 <td>
                     @customer.MembershipType.Name
                 </td>
